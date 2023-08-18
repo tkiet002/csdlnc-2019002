@@ -61,7 +61,105 @@ ALTER TABLE CT_HOADON
 		DROP CONSTRAINT FK_CTHOADON_HOADON
 ALTER TABLE CT_HOADON
 		DROP CONSTRAINT FK_CTHOADON_MATHANG
+USE DB1
+GO
+INSERT [dbo].[MATHANG] ([MSMH], [TENMH], [DONGIA], [DVT]) VALUES (N'1         ', N'HDD20', 10, N'Cái       ')
+INSERT [dbo].[MATHANG] ([MSMH], [TENMH], [DONGIA], [DVT]) VALUES (N'2         ', N'hdd40', 20, N'Cái       ')
+INSERT [dbo].[MATHANG] ([MSMH], [TENMH], [DONGIA], [DVT]) VALUES (N'3         ', N'mbph', 10, N'Cái       ')
+INSERT [dbo].[MATHANG] ([MSMH], [TENMH], [DONGIA], [DVT]) VALUES (N'4         ', N'SDD512', 15, N'Cái       ')
+INSERT [dbo].[KHACHHANG] ([MSKH], [TENKH], [DIACHI], [DIENTHOAI]) VALUES (N'1         ', N'Nguyễn Văn A', N'16/11 Bùi Thị Xuân F3 Tân Bình', N'0903648211')
+INSERT [dbo].[KHACHHANG] ([MSKH], [TENKH], [DIACHI], [DIENTHOAI]) VALUES (N'2         ', N'Nguyễn Văn B', N'16/11 Lạc Long Quân F12 TB', N'0903648154')
+INSERT [dbo].[KHACHHANG] ([MSKH], [TENKH], [DIACHI], [DIENTHOAI]) VALUES (N'3         ', N'Nguyễn Văn M', N'16/11 Huỳnh Văn Bánh F3 PN', N'0903648218')
+INSERT [dbo].[KHACHHANG] ([MSKH], [TENKH], [DIACHI], [DIENTHOAI]) VALUES (N'4         ', N'Nguyễn Văn C', N'16/11 Bùi Thị Xuân F3 TB', N'0903649812')
+INSERT [dbo].[NHANVIEN] ([MSNV], [TENNV], [DIACHI], [CMND], [DIENTHOAI], [NGAYSINH]) VALUES (N'1         ', N'Phạm Văn Thiện', N'16 BTX F3 TB', N'5632987546     ', N'0903648214  ', CAST(N'1985-09-09 00:00:00.000' AS DateTime))
+INSERT [dbo].[NHANVIEN] ([MSNV], [TENNV], [DIACHI], [CMND], [DIENTHOAI], [NGAYSINH]) VALUES (N'2         ', N'Nguyễn Đinh Hoàng ', N'16 BTX F3 TB', N'5672917546     ', N'0903648252  ', CAST(N'1980-05-17 00:00:00.000' AS DateTime))
+INSERT [dbo].[NHANVIEN] ([MSNV], [TENNV], [DIACHI], [CMND], [DIENTHOAI], [NGAYSINH]) VALUES (N'3         ', N'Nguyễn Trung Kiên', N'16 BTX F3 TB', N'5632981746     ', N'0903649872  ', CAST(N'1979-10-16 00:00:00.000' AS DateTime))
+INSERT [dbo].[NHANVIEN] ([MSNV], [TENNV], [DIACHI], [CMND], [DIENTHOAI], [NGAYSINH]) VALUES (N'4         ', N'Nguyễn Thái Hòa ', N'12/65 Thu Duc', N'1832987546     ', N'0903606542  ', CAST(N'1981-04-01 00:00:00.000' AS DateTime))
+INSERT [dbo].[HOADON] ([MSHD], [NGAYHD], [MSKH], [MSNV]) VALUES (N'1         ', CAST(N'2019-01-01 00:00:00.000' AS DateTime), N'1         ', N'1         ')
+INSERT [dbo].[HOADON] ([MSHD], [NGAYHD], [MSKH], [MSNV]) VALUES (N'2         ', CAST(N'2019-01-02 00:00:00.000' AS DateTime), N'2         ', N'2         ')
+INSERT [dbo].[HOADON] ([MSHD], [NGAYHD], [MSKH], [MSNV]) VALUES (N'3         ', CAST(N'2019-01-01 00:00:00.000' AS DateTime), N'1         ', N'2         ')
+INSERT [dbo].[HOADON] ([MSHD], [NGAYHD], [MSKH], [MSNV]) VALUES (N'4         ', CAST(N'2019-01-01 00:00:00.000' AS DateTime), N'1         ', N'1         ')
+INSERT [dbo].[CT_HOADON] ([MSHD], [MSMH], [SOLUONG]) VALUES (N'1         ', N'1         ', 1)
+INSERT [dbo].[CT_HOADON] ([MSHD], [MSMH], [SOLUONG]) VALUES (N'1         ', N'3         ', 2)
+INSERT [dbo].[CT_HOADON] ([MSHD], [MSMH], [SOLUONG]) VALUES (N'2         ', N'1         ', 1)
+INSERT [dbo].[CT_HOADON] ([MSHD], [MSMH], [SOLUONG]) VALUES (N'2         ', N'2         ', 3)
+INSERT [dbo].[CT_HOADON] ([MSHD], [MSMH], [SOLUONG]) VALUES (N'2         ', N'4         ', 1)
+INSERT [dbo].[CT_HOADON] ([MSHD], [MSMH], [SOLUONG]) VALUES (N'3         ', N'2         ', 4)
+INSERT [dbo].[CT_HOADON] ([MSHD], [MSMH], [SOLUONG]) VALUES (N'4         ', N'1         ', 6)
+INSERT [dbo].[CT_HOADON] ([MSHD], [MSMH], [SOLUONG]) VALUES (N'4         ', N'2         ', 15)
+INSERT [dbo].[CT_HOADON] ([MSHD], [MSMH], [SOLUONG]) VALUES (N'4         ', N'3         ', 10)
 
+/*
+Thực hành CSDLNC FIT - NTT University
+
+3.5. Đứng tại Server1 (DB1), thực hiện công việc sau trên Server2 (DB2)
+Câu 1: Liệt kê các hóa đơn sau ngày 01/01/2019.
+*/
+
+SELECT hd.*
+FROM DB1.dbo.HOADON hd
+WHERE hd.NGAYHD > '01/01/2019'
+
+SELECT hd.*
+FROM DB2.dbo.HOADON hd
+WHERE hd.NGAYHD > '01/01/2019'
+/*
+Câu 2: Liệt kê các hóa đơn của khách hàng có tên ‘Nguyễn Văn A’.
+*/
+SELECT hd.*
+FROM	DB1.dbo.HOADON hd, DB1.dbo.KHACHHANG kh
+WHERE	KH.MSKH = HD.MSKH AND
+		KH.TENKH LIKE N'Nguyễn Văn A' 
+
+SELECT hd.*
+FROM DB1.dbo.HOADON hd, DB1.dbo.KHACHHANG kh
+WHERE KH.MSKH = HD.MSKH AND
+		KH.TENKH LIKE N'Nguyễn Văn A' 
+
+
+/*
+Câu 3: Liệt kê các chi tiết hóa đơn của khách hàng tên ‘Nguyễn Văn A’ mua mặt hàng ‘HDD20’
+*/
+	SELECT	CTHD.*
+	FROM	DB1.dbo.CT_HOADON CTHD, DB1.dbo.HOADON HD, DB1.dbo.MATHANG MT
+	WHERE	CTHD.MSMH = MT.MSMH AND HD.MSHD =CTHD.MSHD
+			AND MT.TENMH LIKE 'HDD20'
+
+
+	SELECT	CTHD.*
+	FROM	DB2.dbo.CT_HOADON CTHD, DB2.dbo.HOADON HD, DB2.dbo.MATHANG MT
+	WHERE	CTHD.MSMH = MT.MSMH AND HD.MSHD =CTHD.MSHD
+			AND MT.TENMH LIKE 'HDD20'
+
+
+	
+
+/*
+Câu 4: Hãy làm các công việc trên Server1(DB1) và so sánh thời gian thực hiện Server2(DB2).
+*/
+
+SELECT  HD.MSHD, HD.NGAYHD,CTHD.MSHD, CTHD.SOLUONG, MT.DONGIA, CTHD.SOLUONG * MT.DONGIA AS THANHTIEN,
+		GETDATE() AS THOIGIAN
+FROM	DB1.dbo.CT_HOADON CTHD, DB1.dbo.HOADON HD, DB1.dbo.MATHANG MT
+WHERE	CTHD.MSMH = MT.MSMH AND HD.MSHD =CTHD.MSHD AND
+		HD.MSKH IN	(
+						SELECT KH.MSKH
+						FROM DB1.dbo.KHACHHANG kh
+						WHERE KH.TENKH LIKE N'Nguyễn Văn A'
+					)
+
+SELECT	CTHD.*
+	FROM	DB1.dbo.CT_HOADON CTHD, DB1.dbo.HOADON HD, DB1.dbo.MATHANG MT
+	WHERE	CTHD.MSMH = MT.MSMH AND HD.MSHD =CTHD.MSHD
+/*
+Câu 5: Cập nhật số điện thoại khách hàng có mskh=4 với số điện thoại mới: 0908258003
+Câu 6: Cập nhật dây chuyền mskh = 2 và mshd = 2 với mshd mới là 5 trên 2 table HOADON và
+CT_HOADON
+Câu 7: Tạo Stored Procedure thêm khách hàng mới vào Database DB1 và DB2
+Câu 8: Tạo Stored Procedure và Trigger xóa khách hàng trên Database DB1, DB2 theo mskh và
+các hóa đơn liên quan đến khách hàng.
+Câu 9: Xóa dây chuyền các HOADON có MSHD=5 trên 2 table HOADON và CT_HOADON
+*/
 SELECT * FROM NHANVIEN
 SELECT * FROM HOADON
 SELECT * FROM CT_HOADON

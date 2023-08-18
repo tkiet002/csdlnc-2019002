@@ -90,9 +90,31 @@ INSERT [dbo].[CT_HOADON] ([MSHD], [MSMH], [SOLUONG]) VALUES (N'4         ', N'1 
 INSERT [dbo].[CT_HOADON] ([MSHD], [MSMH], [SOLUONG]) VALUES (N'4         ', N'2         ', 15)
 INSERT [dbo].[CT_HOADON] ([MSHD], [MSMH], [SOLUONG]) VALUES (N'4         ', N'3         ', 10)
 
+--cau 1.
+
 
 SELECT * FROM NHANVIEN
 SELECT * FROM HOADON
 SELECT * FROM CT_HOADON
 SELECT * FROM MATHANG
 SELECT * FROM KHACHHANG
+
+/*
+Thực hành CSDLNC FIT - NTT University
+
+3.5. Đứng tại Server1 (DB1), thực hiện công việc sau trên Server2 (DB2)
+Câu 1: Liệt kê các hóa đơn sau ngày 01/01/2019.
+*/
+
+/*
+Câu 2: Liệt kê các hóa đơn của khách hàng có tên ‘Nguyễn Văn A’.
+Câu 3: Liệt kê các chi tiết hóa đơn của khách hàng tên ‘Nguyễn Văn A’ mua mặt hàng ‘HDD20’
+Câu 4: Hãy làm các công việc trên Server1(DB1) và so sánh thời gian thực hiện Server2(DB2).
+Câu 5: Cập nhật số điện thoại khách hàng có mskh=4 với số điện thoại mới: 0908258003
+Câu 6: Cập nhật dây chuyền mskh = 2 và mshd = 2 với mshd mới là 5 trên 2 table HOADON và
+CT_HOADON
+Câu 7: Tạo Stored Procedure thêm khách hàng mới vào Database DB1 và DB2
+Câu 8: Tạo Stored Procedure và Trigger xóa khách hàng trên Database DB1, DB2 theo mskh và
+các hóa đơn liên quan đến khách hàng.
+Câu 9: Xóa dây chuyền các HOADON có MSHD=5 trên 2 table HOADON và CT_HOADON
+*/
